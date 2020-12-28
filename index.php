@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 	$curl = curl_init();
 	curl_setopt($curl, CURLOPT_URL, "https://trackcmp.net/event");
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

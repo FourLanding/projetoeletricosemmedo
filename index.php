@@ -20,12 +20,12 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 	if ($result !== false) {
 		$result = json_decode($result);
 		if ($result->success) {
-			echo 'Success! ';
+			header("Location: https://joinzap.app/profissao-projetista");
 		} else {
 			echo 'Error! ';
 		}
 
-		echo $result->message;
+		//echo $result->message;
 	} else {
 		echo 'cURL failed to run: ', curl_error($curl);
 	}

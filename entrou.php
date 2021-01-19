@@ -8,7 +8,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 	curl_setopt($curl, CURLOPT_POSTFIELDS, array(
 	"actid" => "610339326",
 	"key" => "107925309c7e4118ec7890691c7c2521c7361933",
-	"event" => "PP_CPL1",
+	"event" => "ViewPage1",
 	"eventdata" => $_GET['url'],
 	"visit" => json_encode(array(
 			// If you have an email address, assign it here.

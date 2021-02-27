@@ -22,7 +22,7 @@ class PESM
 		$code = $post['code'];
 		$mac = $post['mac'];
 
-		if($chaves = $this->container->db()->select('chaves',[
+		if($chaves = $this->container->db(true)->select('chaves',[
 			'id',
 			'code',
 			'mac',
@@ -38,7 +38,7 @@ class PESM
 			//Então apenas registra o MAC ADDRRESS DA MAQUINA
 			if($chaves[0]['status'] === '1')
 			{
-				if($data = $this->container->db()->update("chaves", [
+				if($data = $this->container->db(true)->update("chaves", [
 					"status" => 2,
 					'mac' => $mac
 				], [

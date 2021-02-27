@@ -18,10 +18,15 @@ class Settings
 		}
 	}
 
-	public function db(){
+	public function db($d = null){
+		$db = '_src/@PESM/@db/_PESM.db';
+		if($d === null)
+		{
+			$db = '../../_src/@PESM/@db/_PESM.db';
+		}
 		$database = new Medoo([
 			'database_type' => 'sqlite',
-			'database_file' => '../../_src/@PESM/@db/_PESM.db',
+			'database_file' => $db,
 			//'database_name' => 'main',
 			//'username' => 'root',
 			//'password' => '@17071995'

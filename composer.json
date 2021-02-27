@@ -1,0 +1,20 @@
+{
+    "name": "fourlanding/pesm",
+    "type": "project",
+    "require": {
+        "catfan/medoo": "^1.7"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "App\\": "_src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FourLanding",
+            "email": "four.landing@outlook.com"
+        }
+    ]
+}

@@ -94,7 +94,7 @@ class PESM
 		{
 			//essa chave não existe!
 			$returnData = [
-				'code' => 200,
+				'code' => 402,
 				'msg' => 'Chave inválida!'
 			];
 		}

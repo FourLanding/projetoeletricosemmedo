@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 require 'vendor/autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: application/json; charset=utf-8");
@@ -11,7 +14,7 @@ class PESM
 	public function init(){
 		$post = json_decode(file_get_contents('php://input'), true);
 		$post['mac'] = $_GET['mac'];
-		
+
 		$code = $post['code'];
 		$mac = $post['mac'];
 

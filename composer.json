@@ -2,6 +2,7 @@
     "name": "fourlanding/pesm",
     "type": "project",
     "require": {
+        "ext-pdo_sqlite": "*",
         "catfan/medoo": "^1.7"
     },
     "minimum-stability": "stable",

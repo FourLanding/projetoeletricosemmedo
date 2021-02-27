@@ -63,7 +63,14 @@
 ?>
 	
 	<script>
-
+		$('#CreateNewPass').on('hidden.bs.modal', function (e) {
+		  // do something...
+		  $("#msgGerate")
+			.removeClass('alert-danger')
+			.removeClass('alert-primary')
+			.removeClass('d-block')
+			.addClass('d-none');
+		});
 		$("#createNew").on('click', function(e) {
 			e.preventDefault();
 			var email = $("#emailUsPass").val();
@@ -82,7 +89,7 @@
 					.removeClass('d-none')
 					.addClass('d-block')
 					.html(res.msg+' '+res.data);
-
+					$("#emailUsPass").val("");
 					listar();
 				}
 				else

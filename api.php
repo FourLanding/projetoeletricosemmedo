@@ -99,7 +99,7 @@ class PESM
 			];
 		}
 
-		echo json_encode($returnData);
+		echo json_encode($returnData, JSON_UNESCAPED_UNICODE);
 	}
 
 	public function db(){
@@ -112,6 +112,10 @@ class PESM
 		]);
 		return $database;
 	}
+
+	public function char($text){
+		return html_entity_decode($text);
+	}
 }
 
 $app = new PESM;
@@ -119,3 +123,4 @@ $app->init();
 
 
 
+?>

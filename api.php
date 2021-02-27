@@ -16,11 +16,11 @@ class PESM
 	}
 	
 	public function init(){
-		$post = json_decode(file_get_contents('php://input'), true);
-		$post['mac'] = $_GET['mac'];
+		//$post = json_decode(file_get_contents('php://input'), true);
+		//$post['mac'] = $_GET['mac'];
 
-		$code = $post['code'];
-		$mac = $post['mac'];
+		$code = $_GET['code'];
+		$mac = $_GET['mac'];
 
 		if($chaves = $this->container->db(true)->select('chaves',[
 			'id',

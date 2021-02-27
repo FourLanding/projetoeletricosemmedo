@@ -1,15 +1,19 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 require 'vendor/autoload.php';
+include '_src/Settings.php';
+
 header('Access-Control-Allow-Origin: *');
 header("Content-type: application/json; charset=utf-8");
 header("Access-Control-Allow-Credentials: true");
-use Medoo\Medoo;
 
 class PESM
 {
+	protected $container;
+
+	public function __construct($container){
+		$this->container = $container;
+	}
 	
 	public function init(){
 		$post = json_decode(file_get_contents('php://input'), true);
@@ -18,7 +22,7 @@ class PESM
 		$code = $post['code'];
 		$mac = $post['mac'];
 
-		if($chaves = $this->db()->select('chaves',[
+		if($chaves = $this->container->db()->select('chaves',[
 			'id',
 			'code',
 			'mac',
@@ -34,7 +38,7 @@ class PESM
 			//Então apenas registra o MAC ADDRRESS DA MAQUINA
 			if($chaves[0]['status'] === '1')
 			{
-				if($data = $this->db()->update("chaves", [
+				if($data = $this->container->db()->update("chaves", [
 					"status" => 2,
 					'mac' => $mac
 				], [
@@ -102,23 +106,14 @@ class PESM
 		echo json_encode($returnData, JSON_UNESCAPED_UNICODE);
 	}
 
-	public function db(){
-		$database = new Medoo([
-			'database_type' => 'sqlite',
-			'database_file' => '_src/@PESM/@db/_PESM.db',
-			//'database_name' => 'main',
-			//'username' => 'root',
-			//'password' => '@17071995'
-		]);
-		return $database;
-	}
+	
 
 	public function char($text){
 		return html_entity_decode($text);
 	}
 }
 
-$app = new PESM;
+$app = new PESM($Settings);
 $app->init();
 
 

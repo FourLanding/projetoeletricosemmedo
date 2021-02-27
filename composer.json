@@ -3,7 +3,8 @@
     "type": "project",
     "require": {
         "ext-pdo_sqlite": "*",
-        "catfan/medoo": "^1.7"
+        "catfan/medoo": "^1.7",
+        "respect/validation": "^2.2"
     },
     "minimum-stability": "stable",
     "autoload": {
